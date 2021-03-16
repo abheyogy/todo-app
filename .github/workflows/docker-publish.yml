@@ -1,4 +1,4 @@
-name: Docker
+name: DockerHub Image
 
 on:
   push:
@@ -11,9 +11,7 @@ env:
 
 jobs:
   push:
-    # Ensure test job passes before pushing image.
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v2
@@ -21,6 +19,7 @@ jobs:
         env:
           DOCKER_USER: ${{secrets.DOCKER_USER}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
