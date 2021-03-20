@@ -95,5 +95,10 @@ def task_id(idd):
             return Response(response=error,status=404)
 
 
+@app.route('/')
+def health_check():
+    return Response(status=200)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=50000)
