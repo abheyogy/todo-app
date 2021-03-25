@@ -6,6 +6,6 @@ RUN pip install flask
 COPY todo_app.py .
 
 # Expose port 5000
-EXPOSE 5000
+EXPOSE 50000
 
 CMD ["python", "todo_app.py"]
