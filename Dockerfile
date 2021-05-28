@@ -8,4 +8,5 @@ COPY todo_app.py .
 # Expose port 5000.
 EXPOSE 50000
 
+# Ok.
 CMD ["python", "todo_app.py"]
